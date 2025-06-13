@@ -1,28 +1,33 @@
+import { useState } from "react";
+
 export default function ToDoList() {
+  const [newTask, setNewTask] = useState('F');
+
   const tasks = [
-    'Learn React',
-    'Build a To-Do List App',
-    'Share with friends'
+    { id: 1, task: 'Learn React' },
+    { id: 2, task: 'Build a To-Do List App' },
+    { id: 3, task: 'Share with friends' }
   ];
+
+  const taskList = tasks.map((task) => (
+    TaskItem({ task })
+  ));
 
   return (
     <div>
       <h1>To-Do List</h1>
-      <AddingTaskBar />
-      <></>
+      <AddingTaskBar value={newTask} />
       <ul>
-        <TaskItem task={tasks[0]} />
-        <TaskItem task={tasks[1]} />
-        <TaskItem task={tasks[2]} />
+        {taskList}
       </ul>
     </div>
   );
 }
 
-function AddingTaskBar() {
+function AddingTaskBar(value) {
   return (
     <div>
-      <input type="text" placeholder="Add a new task" />
+      <input type="text" name="inputTask" placeholder="Add a new task" value={value}/>
       <button>Add Task</button>
     </div>
   );
@@ -30,8 +35,8 @@ function AddingTaskBar() {
 
 function TaskItem({ task }) {
   return (
-    <li>
-      {task}
+    <li key={task.id}>
+      {task.task}
       <button>Delete</button>
       <button>Edit</button>
     </li>
