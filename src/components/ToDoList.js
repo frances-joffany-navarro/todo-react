@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 export default function ToDoList() {
-  const [newTask, setNewTask] = useState('F');
-
   const tasks = [
     { id: 1, task: 'Learn React' },
     { id: 2, task: 'Build a To-Do List App' },
@@ -13,10 +11,15 @@ export default function ToDoList() {
     TaskItem({ task })
   ));
 
+  const [newTask, setNewTask] = useState("");
+
   return (
     <div>
       <h1>To-Do List</h1>
-      <AddingTaskBar value={newTask} />
+      <form>
+        <input type="text" id="taskInput" name="inputTask" placeholder="Add a new task" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
+        <button>Add Task</button>
+      </form>
       <ul>
         {taskList}
       </ul>
@@ -24,14 +27,14 @@ export default function ToDoList() {
   );
 }
 
-function AddingTaskBar(value) {
+/* function AddingTaskInput(value, handleInputChange) {
   return (
-    <div>
-      <input type="text" name="inputTask" placeholder="Add a new task" value={value}/>
+    <form>
+      <input type="text" id="taskInput" name="inputTask" placeholder="Add a new task" value={value} onChange={(e) => handleInputChange(e.target.value)} />
       <button>Add Task</button>
-    </div>
+    </form>
   );
-}
+} */
 
 function TaskItem({ task }) {
   return (
