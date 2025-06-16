@@ -23,11 +23,8 @@ function TaskItem({ task }) {
 } */
 
 export default function ToDoList() {
-  const tasks = [
-    { id: 1, task: 'Learn React' },
-    { id: 2, task: 'Build a To-Do List App' },
-    { id: 3, task: 'Share with friends' }
-  ];
+
+  const [tasks, setTasks] = useState([]);
 
   const taskList = tasks.map((task) => (
     TaskItem({ task })
@@ -35,13 +32,20 @@ export default function ToDoList() {
 
   const [newTask, setNewTask] = useState("");
 
+  const addTask = (e) => {
+    e.preventDefault();
+    if (newTask.trim() === "") return; // Prevent adding empty tasks
+    const newTaskItem = { id: Date.now(), task: newTask };
+    setTasks([...tasks, newTaskItem]);
+    setNewTask(""); // Clear input field after adding task
+  }
+
   return (
     <div>
       <h1>To-Do List</h1>
       <form>
         <input type="text" id="taskInput" name="inputTask" placeholder="Add a new task" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
-        
-        <span className="task-actions"><button>Add Task</button></span>
+        <span className="task-actions"><button onClick={addTask}>Add Task</button></span>
       </form>
       <ul>
         {taskList}
