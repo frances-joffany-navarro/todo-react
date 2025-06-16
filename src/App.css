@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+li {
+  list-style: none;
+  margin: 0.5em 0;
+  background-color: rgb(229, 207, 140);
+  padding: 0.5em;
+}
+
+ul {
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+span.task-actions {
+  margin-left: 0.5em;
+}
