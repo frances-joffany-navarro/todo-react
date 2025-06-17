@@ -1,26 +1,31 @@
 import { useState } from "react";
 
-function TaskItem({ task }) {
+function TaskItem({ task, handleDelete, handleEdit }) {
   return (
     <li key={task.id}>
       {task.task}
       <span className="task-actions">
-        <button>Delete</button>
-        <button>Edit</button>
+        <button onClick={() => handleDelete( task.id, task.task,  )}>Delete</button>
+        <button onClick={handleEdit}>Edit</button>
       </span>
 
     </li>
   );
 }
 
-/* function AddingTaskInput(value, handleInputChange) {
+function AddingTaskInput({ value, handleInputChange, addTask }) {
   return (
     <form>
       <input type="text" id="taskInput" name="inputTask" placeholder="Add a new task" value={value} onChange={(e) => handleInputChange(e.target.value)} />
-      <button>Add Task</button>
+      <button onClick={addTask}>Add Task</button>
     </form>
   );
-} */
+}
+
+function handleEdit(taskId, task, setTasks) {
+  return () => {
+  }
+}
 
 export default function ToDoList() {
 
@@ -37,16 +42,14 @@ export default function ToDoList() {
     if (newTask.trim() === "") return; // Prevent adding empty tasks
     const newTaskItem = { id: Date.now(), task: newTask };
     setTasks([...tasks, newTaskItem]);
-    setNewTask(""); // Clear input field after adding task
+    setNewTask("");
   }
 
   return (
     <div>
       <h1>To-Do List</h1>
-      <form>
-        <input type="text" id="taskInput" name="inputTask" placeholder="Add a new task" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
-        <span className="task-actions"><button onClick={addTask}>Add Task</button></span>
-      </form>
+      <AddingTaskInput value={newTask} handleInputChange={setNewTask} addTask={addTask} />
+      <h2>Tasks</h2>
       <ul>
         {taskList}
       </ul>
