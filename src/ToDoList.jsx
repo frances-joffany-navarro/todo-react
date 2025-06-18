@@ -21,8 +21,6 @@ function AddingTaskInput({ value, handleInputChange, addTask }) {
   );
 }
 
-
-
 export default function ToDoList() {
 
   const [tasks, setTasks] = useState([]);
