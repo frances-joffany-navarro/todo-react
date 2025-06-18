@@ -5,10 +5,9 @@ function TaskItem({ task, handleDelete, handleEdit }) {
     <li key={task.id}>
       {task.task}
       <span className="task-actions">
-        <button onClick={() => handleDelete( task.id, task.task,  )}>Delete</button>
-        <button onClick={handleEdit}>Edit</button>
+        <button onClick={() => handleDelete(task.id)}>Delete</button>
+        <button onClick={() => handleEdit(task.id)}>Edit</button>
       </span>
-
     </li>
   );
 }
@@ -22,17 +21,14 @@ function AddingTaskInput({ value, handleInputChange, addTask }) {
   );
 }
 
-function handleEdit(taskId, task, setTasks) {
-  return () => {
-  }
-}
+
 
 export default function ToDoList() {
 
   const [tasks, setTasks] = useState([]);
 
   const taskList = tasks.map((task) => (
-    TaskItem({ task })
+    TaskItem({ task, handleDelete, handleEdit })
   ));
 
   const [newTask, setNewTask] = useState("");
@@ -43,6 +39,21 @@ export default function ToDoList() {
     const newTaskItem = { id: Date.now(), task: newTask };
     setTasks([...tasks, newTaskItem]);
     setNewTask("");
+  }
+
+  function handleEdit(taskId) {
+    const taskToEdit = tasks.find(task => task.id === taskId);
+    if (taskToEdit) {
+      setTasks(tasks.map(task =>
+        task.id === taskId ? { ...task, task: prompt("Edit task:", task.task) || task.task } : task
+      ));
+    }
+    return () => {
+    }
+  }
+
+  function handleDelete(taskId) {
+    setTasks(tasks.filter(task => task.id !== taskId));
   }
 
   return (
