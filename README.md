@@ -2,7 +2,7 @@
 This project is a 1 week project, starting from June 11, 2025 until June 18, 2025.
 
 ## Live site
-(https://frances-joffany-navarro.github.io/todo-react/)[https://frances-joffany-navarro.github.io/todo-react/]
+[https://frances-joffany-navarro.github.io/todo-react/](https://frances-joffany-navarro.github.io/todo-react/)
 ## Timeline
 
 - **June 11** : Created React project
