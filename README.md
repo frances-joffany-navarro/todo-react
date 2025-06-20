@@ -15,4 +15,4 @@ This project is a 1 week project, starting from June 11, 2025 until June 18, 202
 - **June 18** : Deploy project using github pages
 
 ## Credit
-(Create to do app using ReactJS in Geeks for geeks)[https://www.geeksforgeeks.org/reactjs/create-todo-app-using-reactjs/]
+[Create to do app using ReactJS in Geeks for geeks](https://www.geeksforgeeks.org/reactjs/create-todo-app-using-reactjs/)
