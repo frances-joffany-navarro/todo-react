@@ -1,12 +1,18 @@
-# React + Vite
+# React To do List
+This project is a 1 week project, starting from June 11, 2025 until June 18, 2025.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live site
+(https://frances-joffany-navarro.github.io/todo-react/)[https://frances-joffany-navarro.github.io/todo-react/]
+## Timeline
 
-Currently, two official plugins are available:
+- **June 11** : Created React project
+- **June 12** : Created Project's static version
+- **June 13** : Update data and state
+- **June 14** : Fix Input value and on change
+- **June 15** : Update Readme file
+- **June 16** : Add Task button functionality
+- **June 17** : Add Functionality to edit and delete task buttons
+- **June 18** : Deploy project using github pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Credit
+(Create to do app using ReactJS in Geeks for geeks)[https://www.geeksforgeeks.org/reactjs/create-todo-app-using-reactjs/]
