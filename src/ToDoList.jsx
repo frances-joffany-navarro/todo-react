@@ -59,9 +59,11 @@ export default function ToDoList() {
       <h1>To-Do List</h1>
       <AddingTaskInput value={newTask} handleInputChange={setNewTask} addTask={addTask} />
       <h2>Tasks</h2>
-      <ul>
-        {taskList}
-      </ul>
+      <div className="task-list">
+        <ul>
+          {taskList}
+        </ul>
+      </div>
     </div>
   );
 }

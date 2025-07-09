@@ -44,7 +44,6 @@
 li {
   list-style: none;
   margin: 0.5em 0;
-  background-color: rgb(229, 207, 140);
   padding: 0.5em;
 }
 
@@ -54,6 +53,33 @@ ul {
   display: inline-block;
 }
 
-span.task-actions {
+/* span.task-actions {
   margin-left: 0.5em;
+
+}
+ */
+span.task-actions button {
+  margin-left: 0.5em;
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 4px;
+  background-color: #61dafb;
+  color: white;
+  cursor: pointer;
+}
+
+span.task-actions button:hover {
+  background-color: #21a1f1;
+}
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+div.task-list {
+  max-width: 300px;/* 
+  margin: 0 auto; */
+  /* text-align: left; */
 }
