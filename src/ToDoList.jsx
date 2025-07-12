@@ -34,7 +34,7 @@ export default function ToDoList() {
   const addTask = (e) => {
     e.preventDefault();
     if (newTask.trim() === "") return; // Prevent adding empty tasks
-    const newTaskItem = { id: Date.now(), task: newTask };
+    const newTaskItem = { id: self.crypto.randomUUID(), task: newTask };
     setTasks([...tasks, newTaskItem]);
     setNewTask("");
   }
