@@ -22,7 +22,7 @@ function AddingTaskInput({ value, handleInputChange, addTask }) {
 }
 
 export default function ToDoList() {
-  let message = "No tasks available. Please add a task.";
+  const [message, setMessage] = useState("No tasks available. Please add a task.");
 
   const [tasks, setTasks] = useState([]);
 
@@ -38,7 +38,7 @@ export default function ToDoList() {
     const newTaskItem = { id: self.crypto.randomUUID(), task: newTask };
     setTasks([...tasks, newTaskItem]);
     setNewTask("");
-    message = ""; // Clear the message when a task is added
+    setMessage(""); // Clear the message when a task is added
   }
 
   function handleEdit(taskId) {
@@ -54,6 +54,9 @@ export default function ToDoList() {
 
   function handleDelete(taskId) {
     setTasks(tasks.filter(task => task.id !== taskId));
+    if (tasks.length === 1) {
+      setMessage("No tasks available. Please add a task."); // Reset message when last task is deleted
+    }
   }
 
   return (
@@ -61,7 +64,7 @@ export default function ToDoList() {
       <h1>To-Do List</h1>
       <AddingTaskInput value={newTask} handleInputChange={setNewTask} addTask={addTask} />
       <h2>Tasks</h2>
-      <p>{message}</p>
+      <p>{message !== null && message}</p>
       <div className="task-list">
         <ul>
           {taskList}
